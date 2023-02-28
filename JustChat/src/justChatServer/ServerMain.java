@@ -109,7 +109,6 @@ public class ServerMain extends JFrame{
 							SwingWorker<Void, Void> worker = new SwingWorker<Void, Void>(){
 								@Override
 								protected Void doInBackground() throws Exception {
-									//Socket socket = null;
 									ss = new ServerSocket(5570);
 									msgTxt.append("------------- Start Server--------------\n");
 									while(true) {
@@ -119,6 +118,7 @@ public class ServerMain extends JFrame{
 										ThreadClass threadServer = new ThreadClass(s);
 										threadServer.start();
 										threadList.put(threadServer, s.getPort());
+										// threadList : ConcurrentHashMap<스레드, 포트>
 										//msgTxt.append
 										//("접속자 수 : "+threadList.size()+" 명\n");
 									}
